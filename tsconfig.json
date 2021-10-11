@@ -11,6 +11,13 @@
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
+    "paths": {
+      "mylib": [
+        "dist/mylib/button",
+        "dist/mylib/mylib",
+        "dist/mylib"
+      ]
+    },
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
