@@ -1,12 +1,9 @@
 import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { createCustomElement } from '@angular/elements';
-import { ButtonComponent } from 'mylib';
 
 @NgModule({
   declarations: [
-    AppComponent
   ],
   imports: [
     BrowserModule
@@ -15,12 +12,11 @@ import { ButtonComponent } from 'mylib';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private readonly injector: Injector) {
-    const ngElement = createCustomElement(ButtonComponent, {
-      injector,
-    });
 
-    customElements.define('lib-button', ngElement);
+  constructor(private injector: Injector) {
+    import('./button/button.module').then(m => {
+      new m.ButtonModule(injector);
+    });
   }
 
 }
